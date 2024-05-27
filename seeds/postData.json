@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Home Alone",
+     "content": "Where a kid is by himself is realistic",
+     "user_id": 1
+  },
+  {
+    "title": "Home Alone 2",
+     "content": "Again - where a kid is by himself is realistic",
+     "user_id": 1
+  },
+  {
+    "title": "Home Alone 3",
+     "content": "Not same as the original",
+     "user_id": 2
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "content": "A good movie",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "content": "A good movie indeed",
+    "user_id": 3,
+    "post_id": 1
+  },
+  {
+    "content": "The best one ever!",
+    "user_id": 1,
+    "post_id": 2
+  },
+  {
+    "content": "Not even on the same level",
+    "user_id": 1,
+    "post_id": 3
+  },
+  {
+    "content": "Where is Kevin when you need him?",
+    "user_id": 3,
+    "post_id": 3
+  }
+]

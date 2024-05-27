@@ -12,6 +12,6 @@ const sequelize = process.env.DB_URL
   },
 });
 
-console.log("Connected to DB")
+console.log("Connected to DB to " + process.env.DB_NAME)
 
 module.exports = sequelize;
