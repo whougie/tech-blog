@@ -1,0 +1,12 @@
+h1 {
+  background-color: bisque;
+}
+
+.titleSection {
+  background-color: beige;
+}
+
+.createPost {
+  display: none;
+}
+

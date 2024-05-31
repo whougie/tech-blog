@@ -1,0 +1,59 @@
+
+       
+    <div class="container" id="userPosts">
+
+        {{#if posts}}
+        <div class="showPosts">
+        <h3>List of all of your posts</h3>
+        {{#each posts as |post| }}
+        <div class="my-3 border-start border-bottom border-end postRecord" data-id="{{post.id}}">
+            <div class="row titleSection ">
+                <div class="col col-md-6">
+                   <span>{{post.title}}</span>
+                </div>
+                <div class="col col-md-6 text-end">
+                    <span>Posted on {{post.createdAt}}</span>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+        <div class="sticky-md-bottom text-center">
+            <button class="createPostButton">Create New Post</button>
+        </div>
+        </div>
+        {{/if}}
+        
+        {{#unless posts}}
+            <div class="showNoPosts"> 
+                <h3>No posts for the user</h3>
+                <div class="sticky-md-bottom text-center">
+                    <button class="createPostButton">Create New Post</button>
+                </div>
+            </div>
+        {{/unless}}
+
+        <div class="showCreatePost" hidden>
+        <h3>Create a Post</h3>
+        <form class="submit-form">
+            <div class="form-group">
+                <label class="form-label" for="title">Title: </label>
+                <input class="form-control" type="text" id="postTitle" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="content">Content: </label>
+                <textarea class="form-control" type="text" id="postContent"></textarea>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary m-3 submitPostButton" type="submit">Submit</button>
+            </div>
+        </form>
+        </div>
+        
+
+    </div>
+
+        {{!-- <div class="submit-message"> </div> --}}
+
+
+<script type="text/javascript" src="js/dashboard.js"></script>

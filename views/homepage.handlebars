@@ -1,0 +1,46 @@
+<div>
+    <div class="container" id="allPosts">
+        {{#each posts as |post| }}
+        <div class="mb-3 border-start border-bottom border-end showAllPosts" data-postid="{{post.id}}">
+            <div class="row titleSection ">
+                <div class="col col-md-6">
+                   <span>{{post.title}}</span>
+                </div>
+                <div class="col col-md-6 text-end">
+                    <p>Posted by: {{post.user.username}} on {{post.createdAt}}</p>
+                </div>
+            </div>
+           <p>{{post.content}}</p>
+        </div>
+        {{/each}}
+    </div>
+    
+    {{!-- Checked if logged in to get the new form to enter a new comment
+        Use js to show the hidden if post is clicked on
+        Need to dynamcially create the post selected and comments that go with it
+        Listen to the submit and add if pressed
+        Once pressed display the new comment
+    --}}
+    <div class="container" id="onePostwithAllItsComments">
+        <div class="allComments">
+        {{!--Generate dynamically --}}
+        </div>
+        {{#if loggedIn}}
+        <form class="submit-form commentForm" hidden>
+            <div class="form-group">
+                <label class="form-label" for="content">Comment: </label>
+                <textarea class="form-control" type="text" id="postComment"></textarea>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary m-3 submitCommentButton" type="submit">Submit</button>
+            </div>
+        </form>
+        {{/if}}
+    </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+    <script type="text/javascript" src="js/homepage.js"></script>
+</div>
+

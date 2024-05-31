@@ -29,7 +29,12 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new one
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
   try {
+    req.body.user_id = req.session.userId;
     const result = await Post.create(req.body);
     res.json({ status: "success", payload: result })
   } catch(error){
@@ -40,6 +45,10 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   // update one by its `id` value
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
   try {
     const result = Post.update(req.body, { where: { id: req.params.id }, individualHooks: true});
     res.json({ status: "success", payload: result });
@@ -51,6 +60,10 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   // delete a one by its `id` value
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
   try {
     const result = await Post.destroy({ where: { id: req.params.id } } );
     res.json({status: "Deleted", payload: result});
