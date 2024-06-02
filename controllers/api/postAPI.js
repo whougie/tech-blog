@@ -36,9 +36,12 @@ router.post('/', async (req, res) => {
   try {
     req.body.user_id = req.session.userId;
     const result = await Post.create(req.body);
+    console.log("This is result from the server side-----------------")
+    console.log(result)
     res.json({ status: "success", payload: result })
   } catch(error){
     console.log(error)
+    console.log("This is result from the server side for the error-----------------")
     res.status(400).json( {status: "error", message: error.message} )
   }
 });

@@ -41,7 +41,7 @@ submitPostButtonElement.addEventListener('click', async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch(error) {
-    alert('Failed to create a new post');
+    alert('Failed to create a new post and there was an error caught');
   }
   
   if (!response || !response.ok) {
@@ -133,12 +133,13 @@ userPostsElement.addEventListener('click', async (event) => {
     // Collect edit info and submit when the 'Submit' button is clicked
   if (event.target.classList.contains('submitPostButton')) {
     event.preventDefault();
-    
+
     const postEditTitle = document.querySelector("#postEditTitle");
     const postEditContent = document.querySelector('#postEditContent');
     const postEditForm = document.querySelector('#postEditForm');
     
     let response;
+    console.log(postEditForm.dataset.postid)
     try {
       response = await fetch(`/api/posts/${postEditForm.dataset.postid}`, {
         method: 'PUT',
@@ -146,14 +147,14 @@ userPostsElement.addEventListener('click', async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
     } catch(error) {
-      alert('Failed to modify the post');
+      console.log(error);
     }
     
     if (!response || !response.ok) {
-      alert('Failed to modify the post')
+      console.log(response)
     } 
     
-    location.reload();
+     location.reload();
   }
 
   // Delete post entry once the button is clicked
