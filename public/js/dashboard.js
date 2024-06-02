@@ -139,7 +139,6 @@ userPostsElement.addEventListener('click', async (event) => {
     const postEditForm = document.querySelector('#postEditForm');
     
     let response;
-    console.log(postEditForm.dataset.postid)
     try {
       response = await fetch(`/api/posts/${postEditForm.dataset.postid}`, {
         method: 'PUT',
