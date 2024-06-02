@@ -46,9 +46,6 @@ router.get('/dashboard', async (req, res) => {
     })
   }
 
-  console.log("AFtermath for posts")
-  console.log(posts)
-
   res.render('dashboard', {
     loggedIn: req.session.loggedIn,
     posts

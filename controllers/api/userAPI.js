@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
   // find all
   try {
     const result = await User.findAll({});
-    console.log(req.session.loggedIn )
     res.json({ status: "success", payload: result });
   } catch (error) {
     res.status(400).json({ status: "error", message: error.message});
@@ -80,7 +79,6 @@ router.post("/login", async (req, res) => {
     res.status(400).json({ status: "error", message: "Username or Password inputted is incorrect" })
   }
   
-  console.log(userNameCheck)
   if( !userNameCheck ){
     return res.status(401).json({ status: "error", message: "Username or Password does not match" })
   }

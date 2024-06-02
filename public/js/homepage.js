@@ -17,13 +17,11 @@ if (showAllPostsElements) {
   
   showAllPostsElements.on('click', async (event) => {
     if ( $(event.target).data('postid')) {// find the post id to select
-      console.log("Clicking on parent with -> " + $(event.target).data('postid'));
       postId = $(event.target).data('postid');
     }
     
     if ($(event.target).closest('[data-postid]')) {
       parentWithPostId = $(event.target).closest('[data-postid]');
-      console.log("Clicking on child and had to find parent -> " + parentWithPostId.data('postid'));
       postId = parentWithPostId.data('postid');
     } 
 
@@ -34,15 +32,12 @@ if (showAllPostsElements) {
     let comments = await fetch(`/api/comments`)
     .then( response => response.json());
     comments = comments.payload;
-    console.log(comments)
     const commentsForPost = comments.filter( comment => {
       if (comment.post_id === postId)
         return true
       else return false
     })
-    
-    console.log(commentsForPost);
-    
+        
     //Hide the other Posts, but the selected one
     showAllPostsElements.each( function(index) {
       if ($(this).data('postid') !== postId) {
@@ -52,9 +47,7 @@ if (showAllPostsElements) {
     
     // Generate the comments for the post    
     commentsForPost.forEach( comment => {
-      console.log(comment)
-      console.log(comment.content)
-      console.log(comment.user.username)
+
       const divRowElement = $(`<div class="row my-3 titleSection ">`);
       const pCommentElement = $(`<p>${comment.content}</p>`);
       const pUserInfoElement = $(`<p>Posted by: ${comment.user.username} on ${comment.createdAt} </p>`);
@@ -90,8 +83,6 @@ submitCommentButtonElement.on('click', async (event) => {
   
   const comment = await fetch(`/api/comments/${createResult.payload.id}`)
   .then( response => response.json());
-
-  console.log(comment)
 
   // Append the new comment to the Blog
   const divRowElement = $(`<div class="row my-3 titleSection ">`);
