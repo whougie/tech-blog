@@ -12,6 +12,7 @@ const seedDatabase = async () => {
   await User.bulkCreate(userData, { individualHooks: true} );
   await Post.bulkCreate(postData, { individualHooks: true} );
   await Comment.bulkCreate(commentData, { individualHooks: true} );
+  
 };
 
 module.exports = seedDatabase;

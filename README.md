@@ -8,7 +8,7 @@
 ## Description
 The Tech Blog application users to post blogs and post comments to the post.  In addition, the user can edit their posts and delete them.  Non-users can always view the Homepage which shows all the posts and comments, but cannot add any comments or posts.
 
-Deployment URL -
+Deployment URL - https://tech-blog-uxix.onrender.com/
 
 GitHub Repo URL - https://github.com/whougie/tech-blog.git
 
